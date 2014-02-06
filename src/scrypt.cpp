@@ -183,5 +183,5 @@ scrypt(const uint8_t *password, size_t password_len, const uint8_t *salt, size_t
 
 void scrypt_hash_256(const char *input, char *output)
 {
-	scrypt((const uint8_t *)input, (size_t)strlen(input), (const uint8_t*)input, (size_t)strlen(input), (uint8_t)2048, (uint8_t)1, (uint8_t)1, (uint8_t*)output, (size_t)32);
+	scrypt((const uint8_t *)input, 80, (const uint8_t*)input, 80, (uint8_t)2048, (uint8_t)1, (uint8_t)1, (uint8_t*)output, (size_t)32);
 }

@@ -578,7 +578,7 @@ bool CTransaction::CheckTransaction(CValidationState &state) const
 
     if (IsCoinBase())
     {
-        if (vin[0].scriptSig.size() < 2 || vin[0].scriptSig.size() > 100)
+        if (vin[0].scriptSig.size() < 2 || vin[0].scriptSig.size() > 1024)
             return state.DoS(100, error("CTransaction::CheckTransaction() : coinbase script size"));
     }
     else
@@ -2076,24 +2076,6 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
         return state.DoS(100, error("CheckBlock() : size limits failed"));
 
-    // Adcoin: Special short-term limits to avoid 10,000 BDB lock limit:
-    if (GetBlockTime() < 1376568000)  // stop enforcing 15 August 2013 00:00:00
-    {
-        // Rule is: #unique txids referenced <= 4,500
-        // ... to prevent 10,000 BDB lock exhaustion on old clients
-        set<uint256> setTxIn;
-        for (size_t i = 0; i < vtx.size(); i++)
-        {
-            setTxIn.insert(vtx[i].GetHash());
-            if (i == 0) continue; // skip coinbase txin
-            BOOST_FOREACH(const CTxIn& txin, vtx[i].vin)
-                setTxIn.insert(txin.prevout.hash);
-        }
-        size_t nTxids = setTxIn.size();
-        if (nTxids > 4500)
-            return error("CheckBlock() : 15 August maxlocks violation");
-    }
-
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(GetPoWHash(), nBits))
         return state.DoS(50, error("CheckBlock() : proof of work failed"));
@@ -2723,7 +2705,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2");
+        hashGenesisBlock = uint256("0x44ee704868b792668c9964b95ded63c7b15588b3911cec8e8632daf8d6d8fba1 ");
     }
 
     //
@@ -2775,7 +2757,7 @@ bool InitBlockIndex() {
         if (fTestNet)
         {
             block.nTime    = 1391645094;
-            block.nNonce   = 0;
+            block.nNonce   = 1310912;
         }
 
         //// debug print
@@ -2783,13 +2765,32 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0xa4cfad6832af55512b9d67ad002f25f774f59247f9d82130bc00af0606929b13"));
+        assert(block.hashMerkleRoot == uint256("0x7e65aa4477fb622e66530cfcc72299400eabf847f885727616ba2b996ff9f87d"));
         block.print();
 
         if(block.GetHash() != hashGenesisBlock)
         {
-            
+            printf("Creating genesis block...\n");
+            uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
+            uint256 thash;
+            while(true)
+            {
+                scrypt_hash_256(BEGIN(block.nVersion), BEGIN(thash));
+                if(thash <= hashTarget) break;
+                if((block.nNonce & 0xFFF) == 0)
+                    printf("nonce %08X: hash = %s (target = %s)\n", block.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
+                ++block.nNonce;
+                if(block.nNonce == 0)
+                {
+                    printf("NONCE WRAPPED, incrementing time");
+                    ++block.nTime;
+                }
+            }
+            printf("block.nTime = %u \n", block.nTime);
+            printf("block.nNonce = %u \n", block.nNonce);
+            printf("block.GetHash = %s \n", block.GetHash().ToString().c_str());
         }
+
         assert(hash == hashGenesisBlock);
         // Start new block file
         try {
