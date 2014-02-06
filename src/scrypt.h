@@ -1,45 +1,28 @@
-#ifndef SCRYPT_H
-#define SCRYPT_H
+#ifndef SCRYPT_JANE_H
+#define SCRYPT_JANE_H
+
+/*
+	Nfactor: Increases CPU & Memory Hardness
+	N = (1 << (Nfactor + 1)): How many times to mix a chunk and how many temporary chunks are used
+
+	rfactor: Increases Memory Hardness
+	r = (1 << rfactor): How large a chunk is
+
+	pfactor: Increases CPU Hardness
+	p = (1 << pfactor): Number of times to mix the main chunk
+
+	A block is the basic mixing unit (salsa/chacha block = 64 bytes)
+	A chunk is (2 * r) blocks
+
+	~Memory used = (N + 2) * ((2 * r) * block size)
+*/
+
 #include <stdlib.h>
-#include <stdint.h>
 
-static const int SCRYPT_SCRATCHPAD_SIZE = 131072 + 63;
+typedef void (*scrypt_fatal_errorfn)(const char *msg);
+void scrypt_set_fatal_error(scrypt_fatal_errorfn fn);
 
-void scrypt_1024_1_1_256(const char *input, char *output);
-void scrypt_1024_1_1_256_sp_generic(const char *input, char *output, char *scratchpad);
+void scrypt(const unsigned char *password, size_t password_len, const unsigned char *salt, size_t salt_len, unsigned char Nfactor, unsigned char rfactor, unsigned char pfactor, unsigned char *out, size_t bytes);
+void scrypt_hash_256(const char *input, char *output);
 
-#if defined(USE_SSE2)
-#if defined(_M_X64) || defined(__x86_64__) || defined(_M_AMD64) || (defined(MAC_OSX) && defined(__i386__))
-#define USE_SSE2_ALWAYS 1
-#define scrypt_1024_1_1_256_sp(input, output, scratchpad) scrypt_1024_1_1_256_sp_sse2((input), (output), (scratchpad))
-#else
-#define scrypt_1024_1_1_256_sp(input, output, scratchpad) scrypt_1024_1_1_256_sp_detected((input), (output), (scratchpad))
-#endif
-
-void scrypt_detect_sse2();
-void scrypt_1024_1_1_256_sp_sse2(const char *input, char *output, char *scratchpad);
-extern void (*scrypt_1024_1_1_256_sp_detected)(const char *input, char *output, char *scratchpad);
-#else
-#define scrypt_1024_1_1_256_sp(input, output, scratchpad) scrypt_1024_1_1_256_sp_generic((input), (output), (scratchpad))
-#endif
-
-void
-PBKDF2_SHA256(const uint8_t *passwd, size_t passwdlen, const uint8_t *salt,
-    size_t saltlen, uint64_t c, uint8_t *buf, size_t dkLen);
-
-static inline uint32_t le32dec(const void *pp)
-{
-        const uint8_t *p = (uint8_t const *)pp;
-        return ((uint32_t)(p[0]) + ((uint32_t)(p[1]) << 8) +
-            ((uint32_t)(p[2]) << 16) + ((uint32_t)(p[3]) << 24));
-}
-
-static inline void le32enc(void *pp, uint32_t x)
-{
-        uint8_t *p = (uint8_t *)pp;
-        p[0] = x & 0xff;
-        p[1] = (x >> 8) & 0xff;
-        p[2] = (x >> 16) & 0xff;
-        p[3] = (x >> 24) & 0xff;
-}
-#endif
+#endif /* SCRYPT_JANE_H */

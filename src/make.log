@@ -1,0 +1,315 @@
+obj/main.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/main.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/leveldb.o: In function `CLevelDB::CLevelDB(boost::filesystem::path const&, unsigned long long, bool, bool)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:37: undefined reference to `leveldb::Options::Options()'
+obj/leveldb.o: In function `GetOptions':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:28: undefined reference to `leveldb::Options::Options()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:29: undefined reference to `leveldb::NewLRUCache(unsigned long long)'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:31: undefined reference to `leveldb::NewBloomFilterPolicy(int)'
+obj/leveldb.o: In function `CLevelDB::CLevelDB(boost::filesystem::path const&, unsigned long long, bool, bool)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:51: undefined reference to `leveldb::DestroyDB(std::string const&, leveldb::Options const&)'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:56: undefined reference to `leveldb::DB::Open(leveldb::Options const&, std::string const&, leveldb::DB**)'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:46: undefined reference to `leveldb::Env::Default()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:58: undefined reference to `leveldb::Status::ToString() const'
+obj/leveldb.o: In function `CLevelDB::WriteBatch(CLevelDBBatch&, bool)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.cpp:76: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `Exists<std::pair<char, uint256> >':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:123: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `Write<char, int>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `Erase<char>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:51: undefined reference to `leveldb::WriteBatch::Delete(leveldb::Slice const&)'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `Write<char, char>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `Exists<char>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:123: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `Read<char, int>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:94: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `Write<std::pair<char, std::basic_string<char> >, char>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `Read<std::pair<char, std::basic_string<char> >, char>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:94: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `Write<char, CBigNum>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `Read<std::pair<char, uint256>, CDiskTxPos>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:94: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `Write<std::pair<char, uint256>, CDiskTxPos>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `Read<std::pair<char, int>, CBlockFileInfo>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:94: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `Read<std::pair<char, uint256>, CCoins>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:94: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `Write<std::pair<char, int>, CBlockFileInfo>':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `Erase<std::pair<char, uint256> >':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:51: undefined reference to `leveldb::WriteBatch::Delete(leveldb::Slice const&)'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::WriteBatch()'
+obj/txdb.o: In function `~CLevelDBBatch':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:23: undefined reference to `leveldb::WriteBatch::~WriteBatch()'
+obj/txdb.o: In function `bool CLevelDB::Read<char, uint256>(char const&, uint256&)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:94: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `void CLevelDBBatch::Write<char, uint256>(char const&, uint256 const&)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `void CLevelDBBatch::Write<std::pair<char, uint256>, CDiskBlockIndex>(std::pair<char, uint256> const&, CDiskBlockIndex const&)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+obj/txdb.o: In function `bool CLevelDB::Read<char, CBigNum>(char const&, CBigNum&)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:94: undefined reference to `leveldb::Status::ToString() const'
+obj/txdb.o: In function `void CLevelDBBatch::Write<std::pair<char, uint256>, CCoins>(std::pair<char, uint256> const&, CCoins const&)':
+C:\Users\Andrew\Documents\adcoin\src/leveldb.h:42: undefined reference to `leveldb::WriteBatch::Put(leveldb::Slice const&, leveldb::Slice const&)'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `FileLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/env.h:247: undefined reference to `vtable for leveldb::FileLock'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~NoOpLogger':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:224: undefined reference to `leveldb::Logger::~Logger()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `leveldb::Status::IOError(leveldb::Slice const&, leveldb::Slice const&)':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~SequentialFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:154: undefined reference to `leveldb::SequentialFile::~SequentialFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~RandomAccessFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:189: undefined reference to `leveldb::RandomAccessFile::~RandomAccessFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~WritableFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:208: undefined reference to `leveldb::WritableFile::~WritableFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~InMemoryEnv':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::port::Mutex::~Mutex()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::port::Mutex::~Mutex()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::EnvWrapper::~EnvWrapper()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~InMemoryEnv':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::port::Mutex::~Mutex()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::EnvWrapper::~EnvWrapper()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::port::Mutex::~Mutex()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::EnvWrapper::~EnvWrapper()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~RandomAccessFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:189: undefined reference to `leveldb::RandomAccessFile::~RandomAccessFile()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:189: undefined reference to `leveldb::RandomAccessFile::~RandomAccessFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~SequentialFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:154: undefined reference to `leveldb::SequentialFile::~SequentialFile()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:154: undefined reference to `leveldb::SequentialFile::~SequentialFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~WritableFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:208: undefined reference to `leveldb::WritableFile::~WritableFile()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:208: undefined reference to `leveldb::WritableFile::~WritableFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `leveldb::Status::IOError(leveldb::Slice const&, leveldb::Slice const&)':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `RandomAccessFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:185: undefined reference to `leveldb::RandomAccessFile::~RandomAccessFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `leveldb::Status::IOError(leveldb::Slice const&, leveldb::Slice const&)':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `NewWritableFile':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:24: undefined reference to `leveldb::port::Mutex::Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `WritableFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:204: undefined reference to `leveldb::WritableFile::~WritableFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~FileState':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:125: undefined reference to `leveldb::port::Mutex::~Mutex()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `leveldb::Status::IOError(leveldb::Slice const&, leveldb::Slice const&)':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `leveldb::Status::IOError(leveldb::Slice const&, leveldb::Slice const&)':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `SequentialFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:150: undefined reference to `leveldb::SequentialFile::~SequentialFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `leveldb::Status::IOError(leveldb::Slice const&, leveldb::Slice const&)':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./include/leveldb/status.h:48: undefined reference to `leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&)'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `InMemoryEnv':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:231: undefined reference to `leveldb::port::Mutex::Mutex()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:231: undefined reference to `leveldb::EnvWrapper::~EnvWrapper()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:27: undefined reference to `leveldb::port::Mutex::Lock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~MutexLock':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+c:\Users\Andrew\Documents\adcoin\src\leveldb/./util/mutexlock.h:29: undefined reference to `leveldb::port::Mutex::Unlock()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~NoOpLogger':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:224: undefined reference to `leveldb::Logger::~Logger()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~SequentialFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:154: undefined reference to `leveldb::SequentialFile::~SequentialFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~RandomAccessFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:189: undefined reference to `leveldb::RandomAccessFile::~RandomAccessFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~WritableFileImpl':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:208: undefined reference to `leveldb::WritableFile::~WritableFile()'
+C:/win-builds-64/lib64/libmemenv.a(memenv.o): In function `~InMemoryEnv':
+c:\Users\Andrew\Documents\adcoin\src\leveldb/helpers/memenv/memenv.cc:233: undefined reference to `leveldb::EnvWrapper::~EnvWrapper()'
+collect2.exe: error: ld returned 1 exit status
+mingw32-make: *** [adcoind.exe] Error 1

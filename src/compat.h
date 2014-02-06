@@ -13,7 +13,6 @@
 #endif
 #define FD_SETSIZE 1024 // max number of fds in fd_set
 #include <winsock2.h>
-#include <mswsock.h>
 #include <ws2tcpip.h>
 #else
 #include <sys/types.h>
@@ -26,12 +25,14 @@
 #include <ifaddrs.h>
 #endif
 
-typedef u_int SOCKET;
 #ifdef WIN32
 #define MSG_NOSIGNAL        0
 #define MSG_DONTWAIT        0
-typedef int socklen_t;
+typedef uint8_t u_int8_t;
+typedef uint16_t u_int16_t;
+typedef uint32_t u_int32_t;
 #else
+typedef u_int SOCKET;
 #include "errno.h"
 #define WSAGetLastError()   errno
 #define WSAEINVAL           EINVAL

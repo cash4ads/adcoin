@@ -11,6 +11,7 @@
 #include "init.h"
 #include "ui_interface.h"
 #include "checkqueue.h"
+#include <math.h>
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
@@ -32,7 +33,7 @@ unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
 uint256 hashGenesisBlock("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2");
-static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Litecoin: starting difficulty is 1 / 2^12
+static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Adcoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 nBestChainWork = 0;
@@ -64,7 +65,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Litecoin Signed Message:\n";
+const string strMessageMagic = "Adcoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -355,7 +356,7 @@ unsigned int LimitOrphanTxSize(unsigned int nMaxOrphans)
 
 bool CTxOut::IsDust() const
 {
-    // Litecoin: IsDust() detection disabled, allows any valid dust to be relayed.
+    // Adcoin: IsDust() detection disabled, allows any valid dust to be relayed.
     // The fees imposed on each dust txo is considered sufficient spam deterrant. 
     return false;
 }
@@ -612,7 +613,7 @@ int64 CTransaction::GetMinFee(unsigned int nBlockSize, bool fAllowFree,
             nMinFee = 0;
     }
 
-    // Litecoin
+    // Adcoin
     // To limit dust spam, add nBaseFee for each output less than DUST_SOFT_LIMIT
     BOOST_FOREACH(const CTxOut& txout, vout)
         if (txout.nValue < DUST_SOFT_LIMIT)
@@ -1063,16 +1064,15 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 50 * COIN;
+    int64 nSubsidy = 82 * COIN;
 
-    // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 840000); // Litecoin: 840k blocks in ~4 years
+    nSubsidy >>= (nHeight / 210000);
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 3.5 * 24 * 60 * 60; // Litecoin: 3.5 days
-static const int64 nTargetSpacing = 2.5 * 60; // Litecoin: 2.5 minutes
+static const int64 nTargetTimespan = 1 * 24 * 60 * 60;
+static const int64 nTargetSpacing = 604; // Adcoin: 10.06 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -1131,7 +1131,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         return pindexLast->nBits;
     }
 
-    // Litecoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // Adcoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
     int blockstogoback = nInterval-1;
     if ((pindexLast->nHeight+1) != nInterval)
@@ -2076,7 +2076,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
         return state.DoS(100, error("CheckBlock() : size limits failed"));
 
-    // Litecoin: Special short-term limits to avoid 10,000 BDB lock limit:
+    // Adcoin: Special short-term limits to avoid 10,000 BDB lock limit:
     if (GetBlockTime() < 1376568000)  // stop enforcing 15 August 2013 00:00:00
     {
         // Rule is: #unique txids referenced <= 4,500
@@ -2238,7 +2238,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
 
 bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, unsigned int nRequired, unsigned int nToCheck)
 {
-    // Litecoin: temporarily disable v2 block lockin until we are ready for v2 transition
+    // Adcoin: temporarily disable v2 block lockin until we are ready for v2 transition
     return false;
     unsigned int nFound = 0;
     for (unsigned int i = 0; i < nToCheck && nFound < nRequired && pstart != NULL; i++)
@@ -2723,7 +2723,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0xf5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f");
+        hashGenesisBlock = uint256("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2");
     }
 
     //
@@ -2756,26 +2756,26 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+        const char* pszTimestamp = "You like cash4ads? Their early work was a little too new wave for my taste. But when Adcoin came out in '14, I think they really came into their own, commercially and artistically. The whole currency has a clear, crisp look, and a new sheen of consummate professionalism that really gives the coins a big boost. They've been compared to Dogecoin, but I think Adcoin has a far more bitter, cynical sense of humor.";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 50 * COIN;
+        txNew.vout[0].nValue = 82 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1317972665;
+        block.nTime    = 1391645091;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2084524493;
+        block.nNonce   = 0;
 
         if (fTestNet)
         {
-            block.nTime    = 1317798646;
-            block.nNonce   = 385270584;
+            block.nTime    = 1391645094;
+            block.nNonce   = 0;
         }
 
         //// debug print
@@ -2783,10 +2783,14 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(block.hashMerkleRoot == uint256("0xa4cfad6832af55512b9d67ad002f25f774f59247f9d82130bc00af0606929b13"));
         block.print();
-        assert(hash == hashGenesisBlock);
 
+        if(block.GetHash() != hashGenesisBlock)
+        {
+            
+        }
+        assert(hash == hashGenesisBlock);
         // Start new block file
         try {
             unsigned int nBlockSize = ::GetSerializeSize(block, SER_DISK, CLIENT_VERSION);
@@ -3056,7 +3060,7 @@ bool static AlreadyHave(const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xfb, 0xc0, 0xb6, 0xdb }; // Litecoin: increase each by adding 2 to bitcoin's value.
+unsigned char pchMessageStart[4] = { 0xfb, 0xc0, 0xb6, 0xdb }; // Adcoin: increase each by adding 2 to bitcoin's value.
 
 
 void static ProcessGetData(CNode* pfrom)
@@ -4098,7 +4102,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// LitecoinMiner
+// AdcoinMiner
 //
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)
@@ -4511,7 +4515,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return false;
 
     //// debug print
-    printf("LitecoinMiner:\n");
+    printf("AdcoinMiner:\n");
     printf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
     printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
@@ -4520,7 +4524,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != hashBestChain)
-            return error("LitecoinMiner : generated block is stale");
+            return error("AdcoinMiner : generated block is stale");
 
         // Remove key from key pool
         reservekey.KeepKey();
@@ -4534,17 +4538,17 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         // Process this block the same as if we had received it from another node
         CValidationState state;
         if (!ProcessBlock(state, NULL, pblock))
-            return error("LitecoinMiner : ProcessBlock, block not accepted");
+            return error("AdcoinMiner : ProcessBlock, block not accepted");
     }
 
     return true;
 }
 
-void static LitecoinMiner(CWallet *pwallet)
+void static AdcoinMiner(CWallet *pwallet)
 {
-    printf("LitecoinMiner started\n");
+    printf("AdcoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("litecoin-miner");
+    RenameThread("adcoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -4566,7 +4570,7 @@ void static LitecoinMiner(CWallet *pwallet)
         CBlock *pblock = &pblocktemplate->block;
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        printf("Running LitecoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        printf("Running AdcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -4593,10 +4597,9 @@ void static LitecoinMiner(CWallet *pwallet)
             unsigned int nHashesDone = 0;
 
             uint256 thash;
-            char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
             loop
             {
-                scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
+                scrypt_hash_256(BEGIN(pblock->nVersion), BEGIN(thash));
 
                 if (thash <= hashTarget)
                 {
@@ -4665,7 +4668,7 @@ void static LitecoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        printf("LitecoinMiner terminated\n");
+        printf("AdcoinMiner terminated\n");
         throw;
     }
 }
@@ -4690,7 +4693,7 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
 
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
-        minerThreads->create_thread(boost::bind(&LitecoinMiner, pwallet));
+        minerThreads->create_thread(boost::bind(&AdcoinMiner, pwallet));
 }
 
 // Amount compression:
