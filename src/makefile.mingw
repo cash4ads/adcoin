@@ -15,7 +15,7 @@
 # 'make clean' assumes it is running inside a MSYS shell, and uses 'rm'
 # to remove files.
 
-CXX ?= g++
+CXX = x86_64-w64-mingw32-g++
 
 USE_UPNP:=-
 USE_IPV6:=1
@@ -43,11 +43,11 @@ LIBS= \
  -l ssl \
  -l crypto
 
-DEFS=-D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE -DWIN32_LEAN_AND_MEAN
+DEFS=-D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE -DWIN32_LEAN_AND_MEAN -DSCRYPT_CHACHA -DSCRYPT_KECCAK256
 DEBUGFLAGS=-g
 CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 # enable: ASLR, DEP and large address aware
-LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
+#LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
 
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
 
@@ -104,8 +104,6 @@ OBJS= \
 
 ifdef USE_SSE2
 DEFS += -DUSE_SSE2
-OBJS_SSE2= obj/scrypt-sse2.o
-OBJS += $(OBJS_SSE2)
 endif
 
 all: adcoind.exe
