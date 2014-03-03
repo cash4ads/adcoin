@@ -1499,3 +1499,22 @@ bool NewThread(void(*pfn)(void*), void* parg)
     }
     return true;
 }
+
+void DoubleToNumeratorDenominator(double inDouble, long long *outNumerator, long long *outDenominator)
+{
+    double fPart;
+    int expo; // exponent
+    long long lExpo;
+    int i;
+
+    fPart = frexp(inDouble, &expo);
+    for (i=0; i<300 && fPart != floor(fPart) ; i++) { fPart *= 2.0; expo--; }
+
+    *outNumerator = (long long) fPart;
+    lExpo = 1LL << labs((long) expo);
+    if (expo > 0) {
+        *outNumerator *= lExpo;
+        *outDenominator = 1;
+    }
+    else { *outDenominator = lExpo; }
+}
