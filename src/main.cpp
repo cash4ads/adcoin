@@ -1083,7 +1083,10 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
 static const int64 nTargetTimespan = 1 * 24 * 60 * 60;
 static const int64 nTargetSpacing = 604; // Adcoin: 10.06 minutes
-static const int64 nInterval = nTargetTimespan / nTargetSpacing;
+static const int64 nOriginalInterval = 2016;
+static const int64 nFilteredInterval = 9;
+static const int64 nOriginalTargetTimespan = nOriginalInterval * nTargetSpacing;
+static const int64 nFilteredTargetTimespan = nFilteredInterval * nTargetSpacing;
 
 //
 // minimum amount of work that could possibly be required nTime after
